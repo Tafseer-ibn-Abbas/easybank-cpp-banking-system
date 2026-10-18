@@ -1,0 +1,50 @@
+name: EasyBank Windows build
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: windows-2022
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Compile x64 using Visual Studio C++
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $vswhere = Join-Path ${env:ProgramFiles(x86)} 'Microsoft Visual Studio\Installer\vswhere.exe'
+          if (!(Test-Path $vswhere)) { throw 'Visual Studio locator missing on build runner' }
+          $install = & $vswhere -latest -products '*' -requires Microsoft.VisualStudio.Component.VC.Tools.x86.x64 -property installationPath
+          if (!$install) { throw 'Visual Studio C++ build tools missing on runner' }
+          $devcmd = Join-Path ($install | Select-Object -First 1) 'Common7\Tools\VsDevCmd.bat'
+          if (!(Test-Path $devcmd)) { throw 'Developer command prompt missing' }
+          New-Item -ItemType Directory -Force -Path bin | Out-Null
+          $cmd = @(
+            '@echo off',
+            'call "' + $devcmd + '" -arch=x64 -host_arch=x64 >nul || exit /b 1',
+            'cl /nologo /std:c++17 /EHsc /Od /W3 /utf-8 /I. /Fe:bin\EasyBank.exe EasyBank.cpp sqlite3.c bcrypt.lib || exit /b 1'
+          )
+          Set-Content -LiteralPath .\bin\compile.cmd -Value $cmd -Encoding Ascii
+          & cmd.exe /d /c '.\bin\compile.cmd'
+          if ($LASTEXITCODE -ne 0 -or !(Test-Path .\bin\EasyBank.exe)) { throw 'Windows C++ build failed' }
+
+      - name: Run built-in banking self-tests
+        shell: pwsh
+        run: |
+          & .\bin\EasyBank.exe --self-test
+          if ($LASTEXITCODE -ne 0) { throw 'Banking self-tests failed' }
+
+      - name: Package tested Windows application
+        uses: actions/upload-artifact@v4
+        with:
+          name: EasyBank-Windows-x64
+          path: bin/EasyBank.exe
+          if-no-files-found: error
+          retention-days: 7

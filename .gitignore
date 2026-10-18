@@ -1,0 +1,13 @@
+/bin/
+*.exe
+*.pdb
+*.ilk
+*.obj
+*.db
+*.db-*
+*.sqlite*
+.vs/
+.vscode/
+x64/
+Debug/
+Release/
