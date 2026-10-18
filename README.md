@@ -78,43 +78,35 @@ Windows local tests are run automatically by `Run-Local.ps1` after a successful 
 Originally a small C++/SQLite classroom banking project, revised for safer money handling, reliable persistence, simpler navigation and a modern technical console presentation. Screenshots should be taken from the **real running application**; no fabricated application captures are provided. The original local database and Visual Studio caches are intentionally excluded.
 
 <!-- EASYBANK_PORTFOLIO_GALLERY_BEGIN -->
-## Application gallery
+## Application screenshots
 
-These are **actual EasyBank C++ terminal captures**, framed to a consistent 1600 × 1200 size for readability. The application is a fictional, offline banking simulator, not financial software for real accounts.
+Five **real captures** from the EasyBank C++17/SQLite terminal application, displayed on matching 1600 × 1200 canvases. Screens are taken from fictional local accounts and transactions; EasyBank is an educational offline simulation, not a real banking service.
 
 ### Main menu
 
 ![EasyBank main menu](screenshots/01-main-menu.png)
 
-### Administrator and sample-data workflow
+### Administrator overview and account directory
 
-![EasyBank loading fictional demo accounts](screenshots/03-admin-sample-setup.png)
+Three fictional accounts with balances and ledger activity.
 
-### Account directory
+![EasyBank admin overview and account directory](screenshots/02-admin-overview-and-directory.png)
 
-![EasyBank account directory showing three fictional accounts](screenshots/04-admin-directory.png)
+### Customer dashboard
 
-<details>
-<summary>More real application captures: validation and login feedback</summary>
+Savings account, available balance, and account operations.
 
-These views illustrate input validation and generic login-failure handling; they are not successful account-opening or authentication examples.
+![EasyBank customer dashboard](screenshots/03-customer-dashboard.png)
 
-![EasyBank account creation validation](screenshots/02-account-validation.png)
+### Completed simulated transfer
 
-![EasyBank login feedback](screenshots/05-login-feedback.png)
+An accepted $125.00 transfer from `alex_demo` to account `1002` (`sam_demo`).
 
-</details>
+![EasyBank successful transfer](screenshots/04-transfer-confirmed.png)
 
-<details>
-<summary>Portfolio presentation mockups (illustrative, not literal application screenshots)</summary>
+### Account statement
 
-The following **stylized, AI-generated presentation images** are for portfolio design only. They may differ from the actual terminal output; use the real captures above to evaluate functionality.
+The captured statement shows a $1,500 deposit and **two separate $125 transfers** at different timestamps. These represent recorded transactions, not duplicated screenshots.
 
-![EasyBank main menu presentation](showcase-mockups/01-main-menu-concept.png)
-![EasyBank account validation presentation](showcase-mockups/02-account-validation-concept.png)
-![EasyBank administrator setup presentation](showcase-mockups/03-admin-setup-concept.png)
-![EasyBank account directory presentation](showcase-mockups/04-admin-directory-concept.png)
-![EasyBank login feedback presentation](showcase-mockups/05-login-feedback-concept.png)
-
-</details>
+![EasyBank account statement](screenshots/05-transaction-statement.png)
 <!-- EASYBANK_PORTFOLIO_GALLERY_END -->
