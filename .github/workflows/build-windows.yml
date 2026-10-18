@@ -27,8 +27,8 @@ jobs:
           if (!(Test-Path $devcmd)) { throw 'Developer command prompt missing' }
           New-Item -ItemType Directory -Force -Path bin | Out-Null
           $cmd = @(
-            '@echo off',
-            'call "' + $devcmd + '" -arch=x64 -host_arch=x64 >nul || exit /b 1',
+            '@echo off'
+            "call `"$devcmd`" -arch=x64 -host_arch=x64 >nul || exit /b 1"
             'cl /nologo /std:c++17 /EHsc /Od /W3 /utf-8 /I. /Fe:bin\EasyBank.exe EasyBank.cpp sqlite3.c bcrypt.lib || exit /b 1'
           )
           Set-Content -LiteralPath .\bin\compile.cmd -Value $cmd -Encoding Ascii
