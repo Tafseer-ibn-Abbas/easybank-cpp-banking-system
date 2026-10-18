@@ -76,3 +76,45 @@ Windows local tests are run automatically by `Run-Local.ps1` after a successful 
 ## Portfolio scope
 
 Originally a small C++/SQLite classroom banking project, revised for safer money handling, reliable persistence, simpler navigation and a modern technical console presentation. Screenshots should be taken from the **real running application**; no fabricated application captures are provided. The original local database and Visual Studio caches are intentionally excluded.
+
+<!-- EASYBANK_PORTFOLIO_GALLERY_BEGIN -->
+## Application gallery
+
+These are **actual EasyBank C++ terminal captures**, framed to a consistent 1600 × 1200 size for readability. The application is a fictional, offline banking simulator, not financial software for real accounts.
+
+### Main menu
+
+![EasyBank main menu](screenshots/01-main-menu.png)
+
+### Administrator and sample-data workflow
+
+![EasyBank loading fictional demo accounts](screenshots/03-admin-sample-setup.png)
+
+### Account directory
+
+![EasyBank account directory showing three fictional accounts](screenshots/04-admin-directory.png)
+
+<details>
+<summary>More real application captures: validation and login feedback</summary>
+
+These views illustrate input validation and generic login-failure handling; they are not successful account-opening or authentication examples.
+
+![EasyBank account creation validation](screenshots/02-account-validation.png)
+
+![EasyBank login feedback](screenshots/05-login-feedback.png)
+
+</details>
+
+<details>
+<summary>Portfolio presentation mockups (illustrative, not literal application screenshots)</summary>
+
+The following **stylized, AI-generated presentation images** are for portfolio design only. They may differ from the actual terminal output; use the real captures above to evaluate functionality.
+
+![EasyBank main menu presentation](showcase-mockups/01-main-menu-concept.png)
+![EasyBank account validation presentation](showcase-mockups/02-account-validation-concept.png)
+![EasyBank administrator setup presentation](showcase-mockups/03-admin-setup-concept.png)
+![EasyBank account directory presentation](showcase-mockups/04-admin-directory-concept.png)
+![EasyBank login feedback presentation](showcase-mockups/05-login-feedback-concept.png)
+
+</details>
+<!-- EASYBANK_PORTFOLIO_GALLERY_END -->
